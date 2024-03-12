@@ -2,12 +2,10 @@ package logrus
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
-	jsoniter "github.com/json-iterator/go"
 	"runtime"
 )
-
-var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
 type fieldKey string
 
