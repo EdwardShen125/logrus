@@ -3,11 +3,11 @@ package logrus
 import (
 	"bytes"
 	"fmt"
-	jsoniter "github.com/json-iterator/go"
+	json "github.com/json-iterator/go"
 	"runtime"
 )
 
-var json = jsoniter.ConfigCompatibleWithStandardLibrary
+var jsoniter = json.ConfigCompatibleWithStandardLibrary
 
 type fieldKey string
 
@@ -117,7 +117,7 @@ func (f *JSONFormatter) Format(entry *Entry) ([]byte, error) {
 		b = &bytes.Buffer{}
 	}
 
-	encoder := json.NewEncoder(b)
+	encoder := jsoniter.NewEncoder(b)
 	encoder.SetEscapeHTML(!f.DisableHTMLEscape)
 	if f.PrettyPrint {
 		encoder.SetIndent("", "  ")
